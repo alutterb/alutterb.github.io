@@ -1,6 +1,6 @@
 ## Austin Lutterbach's Personal Github Page
 ```markdown
-![Me](https://imgur.com/WmT5mGZ)
+![Me](https://i.imgur.com/WmT5mGZ.jpg)
 ```
 
 To the hiring agencies doing detective work on me, hello! This page is mostly designed for you. I will provide a biography of myself as well as my aspirations and goals in life. I will also supply some fun facts I enjoy as well as any other random quips I wish to include!
