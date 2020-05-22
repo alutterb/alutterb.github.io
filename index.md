@@ -3,7 +3,7 @@
 ![Guten Tag!](https://i.imgur.com/WmT5mGZm.jpg)
 
 
-To the hiring agencies doing detective work on me, hello! This page is mostly designed for you. I will provide a biography of myself as well as my aspirations and goals in life. I will also supply some fun facts I enjoy as well as any other random quips I wish to include!
+To the hiring agencies doing detective work on me, hello! This page is mostly designed for you. I will provide a biography of myself as well as my aspirations and goals in life.
 
 ### Biography
 I was born in Evansville, Indiana, also known as the armpit of America for how hot and humid it gets here. I have two siblings, one brother and one sister and two awesome parents and an awesome stepfather. I attended St. Ben's elementary school from 1st to 8th grade. In grade school, I was a bit of a nuisance to my teachers as I was a kid with a crazy imagination and boatloads of energy. I played basketball for precisely one year and scored precisely one goal. I also played soccer recreationally for a local sports team. Otherwise, my time was spent playing video games and hanging out with my friends whom I still hang out with to this day. I have ADD, so focusing on studies was always a challenge for me. I enrolled at Reitz Memorial High school in 2012. I was part of the bowling team for all 4 years. Otherwise, I had a very lackluster high school career. I didn't attend any events such as the dances or senior trips. I didn't even get my senior picture taken! I scraped by with a 3.1~ GPA. 
