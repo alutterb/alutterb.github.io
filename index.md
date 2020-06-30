@@ -10,8 +10,6 @@ I was born in Evansville, Indiana, also known as the armpit of America for how h
 
 After graduating high school in 2016, I applied to Purdue but was rejected. I went to Ball State, had an epiphany, ended up with a 3.92 GPA my freshman year and transferred to Purdue. At Purdue I did undergrad research in the anthropology department where I helped design some statistical software to figure out how artefacts differ by shape. I ended up graduating from Purdue in 2020 with a 3.73 GPA majoring in mathematics, statisics, and applied mathematics. I am now currently a graduate student at Cornell University pursuing a Master's in Operations Research. I failed many times to get to where I am at. I am not afraid of failure. I see it as a tool to learn of my shortcomings and then correcting those hindrances to propell me even further than if I hadn't failed.
 
-I hope to dedicate my life to pushing the world forward.
-
 ### Hobbies
 - My father is a musician, so I have an affinity for music. I am currently learning the piano and plan on taking some singing classes as well. I enjoy all types of genres of music, from country to metal to rap to rock to classical. You name it, I like it.
 
