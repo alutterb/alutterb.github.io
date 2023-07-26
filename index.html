@@ -47,8 +47,7 @@
 
         <div class="about">
             <h2>About Me</h2>
-            <p>B.S. in Math/Stats, Masters in Ops Research/Information Engineering with a specialization in machine learning.
-               I enjoy building and developing machine learning models, obscure music, pure mathematics, and my two cats Kataro and Omelette.
+            <p>B.S. in Math/Stats from Purdue University, Masters in Ops Research/Information Engineering from Cornell University. My current interests include Natural Language Processing and its applications, optimization of machine learning methods, and time series forecasting. </p>
             </p>
         </div>
 
@@ -66,11 +65,10 @@
                     <h3><a href="https://github.com/alutterb/Chinese-Tutor" target="_blank">Chinese Tutor</a></h3>
                     <p>I am currently developing a personal Chinese tutor trained on my chinese textbooks.
                        The first phase is generating quality data from the textbooks by accurately extracting the English, pinyin, and Chinese characters.
-                       The diversity of text in a Chinese textbook has proven to be a unique challenge.
-                       Once quality data is ready, an LLM framework using langchain will be developed.
-                       I plan on creating a simple GUI to interface with the tutor who, based on the textbook,
-                       can answer questions and generate lectures. I also hope to use open source LLMs or even construct my own framework
-                       and train it on many different Chinese texts to make it very good at one thing - teaching Chinese. </p>
+                       Since the scanned version of the textbook had a healthy amount of imperfections, I used OpenAI's GPT API to correct the text by parsing small chunks and combining the final result.
+
+                       The current phase is implementing retrieval augmentation for the Chinese tutor agent.
+                     </p>
                 </li>
             </ul>
         </div>
