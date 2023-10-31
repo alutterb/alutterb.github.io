@@ -65,6 +65,7 @@
                     <h3><a href="https://github.com/alutterb/Chinese-Tutor" target="_blank">Chinese Tutor</a></h3>
                     <p>I developed a personal Chinese tutor that is trained on my Chinese textbook. I am learning 中文 as my girlfriend is Taiwanese,
                         so I wanted a tool that could help me learn along the way. The following bullet points are highlights of the project:</p>
+                        <ul style="padding-left: 20px;">
                         <li>
                             <p>Scan the pdfs via an OCR scanner in Python and use GPT4 to correct errors in the scanning process in order to acquire high quality
                             source data for the local LLM. </p>
@@ -77,6 +78,7 @@
                             <p>Using the vector DB, I used a local LLM (llama2 7b from HF) to access the information from pinecone. This allowed the local llm to
                         answer specific nuanced questions regarding my textbook.</p>
                         </li>
+                        </ul>
                         <p>The primary advantage over using GPT4 is that, once the text extraction is complete, the model is entirely localized. I do not need to ping 
                         an API for requests, all I need is my eGPU. However, one limitation is that I'm using a 3070 ti, which only has 8 GB of VRAM. With this GPU,
                         I can only feasibly run a 7b parameter model. Anything larger presents issues. My ideal setup would be two 4090s, though currently this is out of my 
