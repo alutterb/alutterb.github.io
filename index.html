@@ -63,11 +63,18 @@
                 </li>
                 <li>
                     <h3><a href="https://github.com/alutterb/Chinese-Tutor" target="_blank">Chinese Tutor</a></h3>
-                    <p>I am currently developing a personal Chinese tutor trained on my chinese textbooks.
-                       The first phase is generating quality data from the textbooks by accurately extracting the English, pinyin, and Chinese characters.
-                       Since the scanned version of the textbook had a healthy amount of imperfections, I used OpenAI's GPT API to correct the text by parsing small chunks and combining the final result.
+                    <p>I developed a personal Chinese tutor that is trained on my Chinese textbook. I am learning 中文 as my girlfriend is Taiwanese,
+                        so I wanted a tool that could help me learn along the way.
 
-                       The current phase is implementing retrieval augmentation for the Chinese tutor agent.
+                        I scanned the pdfs via an OCR scanner in Python. I then used GPT4 to correct errors in the scanning process in order to acquire high quality
+                        source data for the local LLM. I then took this data and stored it on a vector db (pinecone) to be used for Retrieval Augmentation Generation
+                        (RAG). Using the vector DB, I used a local LLM (llama2 7b from HF) to access the information from pinecone. This allowed the local llm to
+                        answer specific nuanced questions regarding my textbook. 
+
+                        The primary advantage over using GPT4 is that, once the text extraction is complete, the model is entirely localized. I do not need to ping 
+                        an API for requests, all I need is my eGPU. However, one limitation is that I'm using a 3070 ti, which only has 8 GB of VRAM. With this GPU,
+                        I can only feasibly run a 7b parameter model. Anything larger presents issues. My ideal setup would be two 4090s, though currently this is out of my 
+                        budget range.
                      </p>
                 </li>
             </ul>
@@ -81,8 +88,8 @@
                     <h3><a href="https://www.goodreads.com/user/show/103660070-austin-lutterbach", target="_blank">My Goodreads</a></h3>
                 </li>
                 <li>
-                    <p>Currently, I am working through an Introduction to Graph Theory, by Trudeau, which can be bought here:</p>
-                        <h4><a href="https://www.amazon.com/Introduction-Graph-Theory-Richard-Trudeau/dp/1684112311", target="_blank">An Introduction To Graph Theory</a></h4>
+                    <p>Currently, I am currently reviewing concepts from Abstract Algebra using the textbook from Dummit and Foote, which can be found here:</p>
+                        <h4><a href="https://www.amazon.com/Abstract-Algebra-3rd-David-Dummit/dp/0471433349", target="_blank">Abstract Algebra</a></h4>
                 </li>
             </ul>
         </div>
