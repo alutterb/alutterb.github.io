@@ -7,48 +7,38 @@ layout: none
     <meta charset="utf-8">
     <title>~*~ Austin's ML Hideout ~*~</title>
     <style>
-        /* ======================= */
-        /*   EARLY‑2000s BEACH VIBES */
-        /* ======================= */
-
         body {
-            background-image: url("https://media1.tenor.com/m/L3iWt2L10KMAAAAC/pokemon-pokemon-diamond.gif");
+            background-image: url("https://64.media.tumblr.com/d4b96de3fa9a0b29c5b5b6804b0784a5/tumblr_ojdj7y3dif1uhq2kko4_400.gif");
             background-repeat: repeat;
             background-attachment: fixed;
-            background-color: #FFF9E3;       /* pale sand fallback */
-            color: #3A2602;                  /* coconut‑brown text */
+            background-color: #E3F6FF;
+            color: #003366;
             font-family: "Comic Sans MS", "Trebuchet MS", Verdana, sans-serif;
             margin: 0;
         }
-
-        /* “Centered table” look that fit 800×600 back in the day */
         #wrapper {
             width: 760px;
             margin: 0 auto;
-            background: rgba(255, 255, 255, 0.85); /* translucent parchment */
-            border: 4px ridge #FFB347;  /* orange sunset frame */
+            background: rgba(255, 255, 255, 0.88);
+            border: 4px ridge #6EC1FF;
         }
-
-        /* Header: sunrise gradient, chunky retro drop‑shadow */
         header {
-            background: linear-gradient(90deg, #FFEEAD 0%, #FFC37D 50%, #FFEEAD 100%);
+            background: linear-gradient(90deg, #BFE8FF 0%, #7FCCFF 50%, #BFE8FF 100%);
             padding: 12px;
             text-align: center;
             box-shadow: 0 4px 8px rgba(0,0,0,0.25);
         }
         header h1 {
             font-size: 42px;
-            color: #0066CC;            /* clear‑sky blue */
-            text-shadow: 3px 3px 0 #FFFFFF, 5px 5px 5px rgba(0,0,0,0.3);
+            color: #ffffff;
+            text-shadow: 3px 3px 0 #7FCCFF, 5px 5px 5px rgba(0,0,0,0.3);
             margin: 0;
             letter-spacing: 2px;
         }
-
-        /* Navigation bar: bamboo board look */
         nav {
-            background-color: #FFDA7B;
-            border-top: 3px dashed #FF8C42;
-            border-bottom: 3px dashed #FF8C42;
+            background-color: #D8F1FF;
+            border-top: 3px dashed #7FCCFF;
+            border-bottom: 3px dashed #7FCCFF;
             padding: 6px 0;
         }
         nav a {
@@ -60,46 +50,36 @@ layout: none
         nav a:hover {
             text-decoration: underline overline;
         }
-
-        /* Animated heading ticker */
         marquee {
-            background-color: #FFB347;
-            color: #8B0000;
+            background-color: #7FCCFF;
+            color: #ffffff;
             font-size: 15px;
             padding: 4px 0;
         }
-
-        /* Content sections: light card with dotted coral border */
         section {
-            background: rgba(255,255,255,0.95);
-            border: 2px dotted #FF7F50; /* coral */
+            background: rgba(255,255,255,0.96);
+            border: 2px dotted #7FCCFF;
             padding: 12px;
             margin: 14px;
         }
         section h2 {
-            color: #FF4500;          /* sunset orange */
-            border-bottom: 2px solid #FF7F50;
+            color: #0066CC;
+            border-bottom: 2px solid #7FCCFF;
             font-size: 26px;
             margin: 0 0 8px 0;
         }
-
-        /* Footer: bamboo plank */
         footer {
-            background-color: #FFDA7B;
-            color: #8B4513;
+            background-color: #D8F1FF;
+            color: #003366;
             text-align: center;
             padding: 10px 0 14px 0;
             font-size: 13px;
             font-family: "Courier New", monospace;
         }
-
-        /* Blink text for classic “Under Construction” */
         .blink {
             animation: blinkAnim 1s steps(2, start) infinite;
         }
         @keyframes blinkAnim { to { visibility: hidden; } }
-
-        /* Divider sprite */
         .divider {
             display: block;
             margin: 14px auto;
@@ -114,7 +94,7 @@ layout: none
         <h1>Welcome to Austin's ML Hideout</h1>
     </header>
 
-    <marquee behavior="alternate" scrollamount="6">🌴 Machine Learning • 中文 • Retro Games • Maths • Surf’s Up! 🌴</marquee>
+    <marquee behavior="alternate" scrollamount="6">☁️ Machine Learning • 中文 • Retro Games • Maths • Blue‑Sky Vibes ☁️</marquee>
 
     <nav>
         <a href="#about">About</a> |
@@ -135,7 +115,6 @@ layout: none
             <li><b><a href="https://github.com/alutterb/retro-analytics" target="_blank">Retro Analytics</a></b> – Forecasting retro game price trends with ARIMA + online sentiment.</li>
             <li><b><a href="https://github.com/alutterb/Chinese-Tutor" target="_blank">Chinese Tutor</a></b> – A local LLM‑powered 中文 study buddy using OCR, Pinecone & Llama‑2.</li>
         </ul>
-        <img class="divider" src="https://www.models-resource.com/resources/big_icons/55/54538.png" alt="divider">
     </section>
 
     <section id="misc">
@@ -144,6 +123,11 @@ layout: none
             <li>Reviewing <a href="https://www.amazon.com/dp/0486678709" target="_blank">Abstract Algebra</a>.</li>
             <li>Learning Rust – see my <a href="https://github.com/alutterb/Rust-Learning" target="_blank">progress repo</a>.</li>
         </ul>
+    </section>
+
+    <section id="guestbook">
+        <h2>Guestbook</h2>
+        <p>Sign my guestbook by opening an issue on <a href="https://github.com/alutterb/alutterb.github.io/issues" target="_blank">GitHub</a>!</p>
     </section>
 
     <footer>
