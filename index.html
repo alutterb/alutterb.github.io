@@ -7,91 +7,114 @@ layout: none
     <meta charset="utf-8">
     <title>~*~ Austin's ML Hideout ~*~</title>
     <style>
+        /* ======================= */
+        /*   EARLY‑2000s BEACH VIBES */
+        /* ======================= */
+
         body {
             background-image: url("https://media1.tenor.com/m/L3iWt2L10KMAAAAC/pokemon-pokemon-diamond.gif");
-            background-color: #000000;
-            color: #FFFF99;
+            background-repeat: repeat;
+            background-attachment: fixed;
+            background-color: #FFF9E3;       /* pale sand fallback */
+            color: #3A2602;                  /* coconut‑brown text */
             font-family: "Comic Sans MS", "Trebuchet MS", Verdana, sans-serif;
             margin: 0;
         }
+
+        /* “Centered table” look that fit 800×600 back in the day */
         #wrapper {
             width: 760px;
             margin: 0 auto;
-            background-color: #000000;
-            border: 3px ridge #33CCFF;
+            background: rgba(255, 255, 255, 0.85); /* translucent parchment */
+            border: 4px ridge #FFB347;  /* orange sunset frame */
         }
+
+        /* Header: sunrise gradient, chunky retro drop‑shadow */
         header {
-            background: linear-gradient(90deg, #000033 0%, #330066 100%);
-            padding: 10px;
+            background: linear-gradient(90deg, #FFEEAD 0%, #FFC37D 50%, #FFEEAD 100%);
+            padding: 12px;
             text-align: center;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.25);
         }
         header h1 {
             font-size: 42px;
-            color: #33CCFF;
-            text-shadow: 2px 2px 3px #FF00FF;
+            color: #0066CC;            /* clear‑sky blue */
+            text-shadow: 3px 3px 0 #FFFFFF, 5px 5px 5px rgba(0,0,0,0.3);
             margin: 0;
             letter-spacing: 2px;
         }
+
+        /* Navigation bar: bamboo board look */
         nav {
-            background-color: #333366;
-            border-top: 2px dashed #66FFFF;
-            border-bottom: 2px dashed #66FFFF;
-            padding: 5px 0;
+            background-color: #FFDA7B;
+            border-top: 3px dashed #FF8C42;
+            border-bottom: 3px dashed #FF8C42;
+            padding: 6px 0;
         }
         nav a {
             font-weight: bold;
-            color: #FFFF33;
-            margin: 0 10px;
+            color: #0066CC;
+            margin: 0 12px;
             text-decoration: none;
         }
         nav a:hover {
-            text-decoration: underline;
+            text-decoration: underline overline;
         }
+
+        /* Animated heading ticker */
         marquee {
-            background-color: #660066;
-            color: #FFFFFF;
-            font-size: 14px;
+            background-color: #FFB347;
+            color: #8B0000;
+            font-size: 15px;
             padding: 4px 0;
         }
+
+        /* Content sections: light card with dotted coral border */
         section {
-            background-color: #111111;
-            border: 2px dotted #33CCFF;
-            padding: 10px;
-            margin: 10px;
+            background: rgba(255,255,255,0.95);
+            border: 2px dotted #FF7F50; /* coral */
+            padding: 12px;
+            margin: 14px;
         }
         section h2 {
-            color: #FF99FF;
-            border-bottom: 1px solid #FF99FF;
-            font-size: 24px;
-            margin: 0 0 6px 0;
+            color: #FF4500;          /* sunset orange */
+            border-bottom: 2px solid #FF7F50;
+            font-size: 26px;
+            margin: 0 0 8px 0;
         }
+
+        /* Footer: bamboo plank */
         footer {
-            background-color: #333366;
-            color: #99CCFF;
+            background-color: #FFDA7B;
+            color: #8B4513;
             text-align: center;
-            padding: 8px 0 12px 0;
-            font-size: 12px;
+            padding: 10px 0 14px 0;
+            font-size: 13px;
             font-family: "Courier New", monospace;
         }
+
+        /* Blink text for classic “Under Construction” */
         .blink {
             animation: blinkAnim 1s steps(2, start) infinite;
         }
         @keyframes blinkAnim { to { visibility: hidden; } }
-        /* Divider image styling */
+
+        /* Divider sprite */
         .divider {
             display: block;
-            margin: 12px auto;
+            margin: 14px auto;
+            max-width: 90%;
         }
     </style>
 </head>
 <body>
 <div id="wrapper">
     <header>
-        <img src="https://media1.tenor.com/m/UUTVUk3Ghr4AAAAC/mario-kart-luigi.gif" alt="angry luigi" style="vertical-align: middle; margin-right: 6px;">
+        <img src="https://media1.tenor.com/m/UUTVUk3Ghr4AAAAC/mario-kart-luigi.gif" alt="angry luigi" style="vertical-align: middle; margin-right: 8px; height: 48px;">
         <h1>Welcome to Austin's ML Hideout</h1>
     </header>
 
-    <marquee behavior="alternate" scrollamount="6">🔥 Machine Learning, 中文, Video Games, Maths 🔥</marquee>
+    <marquee behavior="alternate" scrollamount="6">🌴 Machine Learning • 中文 • Retro Games • Maths • Surf’s Up! 🌴</marquee>
 
     <nav>
         <a href="#about">About</a> |
@@ -112,7 +135,7 @@ layout: none
             <li><b><a href="https://github.com/alutterb/retro-analytics" target="_blank">Retro Analytics</a></b> – Forecasting retro game price trends with ARIMA + online sentiment.</li>
             <li><b><a href="https://github.com/alutterb/Chinese-Tutor" target="_blank">Chinese Tutor</a></b> – A local LLM‑powered 中文 study buddy using OCR, Pinecone & Llama‑2.</li>
         </ul>
-        <img class="divider" src="" alt="divider">
+        <img class="divider" src="https://www.models-resource.com/resources/big_icons/55/54538.png" alt="divider">
     </section>
 
     <section id="misc">
@@ -126,7 +149,7 @@ layout: none
     <footer>
         <p>© 1999‑2025 Austin Lutterbach<br>
         <em>Last updated: June 3, 2025</em><br>
-        <img src="https://static.wikia.nocookie.net/kirby/images/5/56/KAR_BlueBox.png/revision/latest?cb=20120130211244&path-prefix=en" alt="visitor badge"></p>
+        <img src="https://media.tenor.com/FDP8INb_tKYAAAAe/kirby-air-ride-kirby.png" alt="kirby badge" height="32"></p>
     </footer>
 </div>
 </body>
