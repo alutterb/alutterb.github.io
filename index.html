@@ -1,116 +1,139 @@
+---
+layout: none
+---
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Austin Lutterbach - Machine Learning Engineer</title>
+    <meta charset="utf-8">
+    <title>~*~ Austin's ML Hideout ~*~</title>
+    <!-- Early‑2000s inspired inline CSS -->
     <style>
         body {
-            font-family: Arial, sans-serif;
+            background-image: url("https://i.imgur.com/3aX9J9U.gif"); /* tiled star‑field gif */
+            background-color: #000000;
+            color: #FFFF99;
+            font-family: "Comic Sans MS", "Trebuchet MS", Verdana, sans-serif;
             margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            background-color: #f4f4f4;
         }
-        .container {
-            width: 80%;
-            margin: auto;
-            overflow: hidden;
+        #wrapper {
+            width: 760px;               /* classic 800×600-friendly width */
+            margin: 0 auto;
+            background-color: #000000;
+            border: 3px ridge #33CCFF;
         }
-        .header, .footer {
+        header {
+            background: linear-gradient(90deg, #000033 0%, #330066 100%);
+            padding: 10px;
             text-align: center;
-            background-color: #333;
-            color: #fff;
-            padding: 20px;
         }
-        .header h1, .footer p {
+        header h1 {
+            font-size: 42px;
+            color: #33CCFF;
+            text-shadow: 2px 2px 3px #FF00FF;
             margin: 0;
-            padding: 10px 0;
+            letter-spacing: 2px;
         }
-        .about, .projects, .links {
-            margin: 20px 0;
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+        nav {
+            background-color: #333366;
+            border-top: 2px dashed #66FFFF;
+            border-bottom: 2px dashed #66FFFF;
+            padding: 5px 0;
         }
-        h2 {
-            border-bottom: 2px solid #333;
-            padding-bottom: 10px;
+        nav a {
+            font-weight: bold;
+            color: #FFFF33;
+            margin: 0 10px;
+            text-decoration: none;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        marquee {
+            background-color: #660066;
+            color: #FFFFFF;
+            font-size: 14px;
+            padding: 4px 0;
+        }
+        section {
+            background-color: #111111;
+            border: 2px dotted #33CCFF;
+            padding: 10px;
+            margin: 10px;
+        }
+        section h2 {
+            color: #FF99FF;
+            border-bottom: 1px solid #FF99FF;
+            font-size: 24px;
+            margin: 0 0 6px 0;
+        }
+        footer {
+            background-color: #333366;
+            color: #99CCFF;
+            text-align: center;
+            padding: 8px 0 12px 0;
+            font-size: 12px;
+            font-family: "Courier New", monospace;
+        }
+        .blink {
+            animation: blinkAnim 1s steps(2, start) infinite;
+        }
+        @keyframes blinkAnim { to { visibility: hidden; } }
+        /* Divider image styling */
+        .divider {
+            display: block;
+            margin: 12px auto;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <h1>Austin Lutterbach</h1>
-            <p>Data Scientist/Machine Learning Engineer</p>
-            <nav>
-                <a href="#about">About</a>
-                <a href="#projects">Projects</a>
-                <a href="#misc">Misc</a>
-            </nav>
-        </div>
+<div id="wrapper">
+    <header>
+        <img src="https://i.imgur.com/jd1QIN6.gif" alt="spinning globe" style="vertical-align: middle; margin-right: 6px;">
+        <h1>Welcome to Austin's ML Hideout</h1>
+    </header>
 
-        <div id="about" class="about">
-            <h2>About Me</h2>
-            <p>B.S. in Math/Stats from Purdue University, Masters in Ops Research/Information Engineering from Cornell University. My current interests include adversarial machine learning, natural language processing, and time series forecasting. I am currently a Machine Learning Scientist at Booz Allen Hamilton conducting research on evasion attacks and data poisoning methodologies. </p>
-            </p>
-        </div>
+    <marquee behavior="alternate" scrollamount="6">🔥 Data Science • Machine Learning • Video Games • 中文 学习 🔥</marquee>
 
-        <div id="projects" class="projects">
-            <h2>Projects</h2>
-            <ul>
-                <li>
-                    <h3><a href="https://github.com/alutterb/retro-analytics" target="_blank">Retro Analytics</a></h3>
-                    <p>Scrapes historical prices of old video games on ebay and posts/comments from Reddit. 
-                        With this data, we train an ARIMA model on the historical data to see which games
-                        are likely to increase in value. We also pair these forecasts with general sentiment
-                        of the game in online communities. </p>
-                </li>
-                <li>
-                    <h3><a href="https://github.com/alutterb/Chinese-Tutor" target="_blank">Chinese Tutor</a></h3>
-                    <p>I developed a personal Chinese tutor that is trained on my Chinese textbook. I am learning 中文 as my girlfriend is Taiwanese,
-                        so I wanted a tool that could help me learn along the way. The following bullet points are highlights of the project:</p>
-                        <ul style="padding-left: 20px;">
-                        <li>
-                            <p>Scan the pdfs via an OCR scanner in Python and use GPT4 to correct errors in the scanning process in order to acquire high quality
-                            source data for the local LLM. </p>
-                        </li>
-                        <li>
-                            <p>Store processed data on a vector db (pinecone) to be used for Retrieval Augmentation Generation
-                        (RAG).</p>
-                        </li>
-                        <li>
-                            <p>Using the vector DB, I used a local LLM (llama2 7b from HF) to access the information from pinecone. This allowed the local llm to
-                        answer specific nuanced questions regarding my textbook.</p>
-                        </li>
-                        </ul>
-                        <p>The primary advantage over using GPT4 is that, once the text extraction is complete, the model is entirely localized. I do not need to ping 
-                        an API for requests, all I need is my eGPU. However, one limitation is that I'm using a 3070 ti, which only has 8 GB of VRAM. With this GPU,
-                        I can only feasibly run a 7b parameter model. Anything larger presents issues. My ideal setup would be two 4090s, though currently this is out of my 
-                        budget range.
-                     </p>
-                </li>
-            </ul>
-        </div>
-        
-        <div id="misc" class="misc">
-            <h2>Misc</h2>
-            <p>This section will highlight various random items that I'd like to share with you, dear browser.</p>
-            <ul>
-                <li>
-                    <p>I have an express interest in pure maths. I am currently reviewing contents learned in my math major, starting with abstract algebra:</p>
-                        <h4><a href="https://www.amazon.com/dp/0486678709/ref=sspa_dk_offsite_brave_1?psc=1&aaxitk=ee60eae3e06e7d94ade36edaaaff3b9c&tqtoken=AgR4W9IglijFdOgnkOEQ_aK9vPzDSnKmytSqnrHbzVxzOtMAGgABAAlyZWNpcGllbnQAC0FtYXpvbkFkc1RRAAEAEWF3cy1rbXMtaGllcmFyY2h5ACRiM2NlMjE3OS0wMzJhLTQ5NTAtOWFlZC00MTczZDMxZmNhMmEAXHh-CHtWIBXNYNXtSIqtZ_NR7sj6h3py_H7SkLvtK8nXMwFE6ZdgvB9GW5UIUzNvmXz3I5L5oEE_XqYlLTA49fr-dE8BUjH-C_rTARxBq3InEXVAoQiKqMlVEO-HAgAAEACHeb__4U5MXIH82sFPH94oY1wcd1fe3iEiuhXR9AV-Vr_uPyRnmL1HRyfmGlV3NPv_____AAAAAQAAAAAAAAAAAAAAAQAAABtFB_jTlO4HC5CVnIguU8CrPRN4Ruw_IUlo5kiOsjvABXvWL7-7sNXDE043", target="_blank">Abstract Algebra</a></h4>
-                </li>
-                <li>
-                    <p>I am learning Rust. See my repo here if you have a curiosity of my progress (it has been slow):</p>
-                        <h4><a href="https://github.com/alutterb/Rust-Learning", target="_blank">Rust Learning Repo</a></h4>   
-                </li>
-            </ul>
-        </div>
+    <nav>
+        <a href="#about">About</a> |
+        <a href="#projects">Projects</a> |
+        <a href="#misc">Misc</a> |
+        <a href="#guestbook">Guestbook</a>
+    </nav>
 
-        <div class="footer">
-            <p>© 2024 Austin Lutterbach</p>
-        </div>
-    </div>
+    <section id="about">
+        <h2>About Me</h2>
+        <p><span class="blink">🚧 Under Construction! 🚧</span></p>
+        <p>B.S. in Math/Stats from Purdue University, M.Eng in Operations Research from Cornell University. I’m currently a Machine Learning Scientist at Booz Allen Hamilton researching adversarial ML and data‑poisoning defenses.</p>
+    </section>
+
+    <section id="projects">
+        <h2>Projects</h2>
+        <ul>
+            <li><b><a href="https://github.com/alutterb/retro-analytics" target="_blank">Retro Analytics</a></b> – Forecasting retro game price trends with ARIMA + online sentiment.</li>
+            <li><b><a href="https://github.com/alutterb/Chinese-Tutor" target="_blank">Chinese Tutor</a></b> – A local LLM‑powered 中文 study buddy using OCR, Pinecone & Llama‑2.</li>
+        </ul>
+        <img class="divider" src="https://i.imgur.com/3yBlsBY.gif" alt="rainbow divider">
+    </section>
+
+    <section id="misc">
+        <h2>Misc</h2>
+        <ul>
+            <li>Reviewing <a href="https://www.amazon.com/dp/0486678709" target="_blank">Abstract Algebra</a>.</li>
+            <li>Learning Rust – see my <a href="https://github.com/alutterb/Rust-Learning" target="_blank">progress repo</a>.</li>
+        </ul>
+    </section>
+
+    <section id="guestbook">
+        <h2>Guestbook</h2>
+        <p>Sign my guestbook by opening an issue on <a href="https://github.com/alutterb/alutterb.github.io/issues" target="_blank">GitHub</a>!</p>
+    </section>
+
+    <footer>
+        <p>© 1999‑2025 Austin Lutterbach<br>
+        <em>Last updated: June 3, 2025</em><br>
+        <img src="https://visitor-badge.glitch.me/badge?page_id=alutterb.alutterb.github.io" alt="visitor badge"></p>
+    </footer>
+</div>
 </body>
 </html>
