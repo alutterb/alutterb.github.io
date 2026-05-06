@@ -1,0 +1,2 @@
+# Local OAuth proxy clone (deploy with Wrangler from its own directory; not part of Pages site)
+decap-proxy/
