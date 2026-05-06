@@ -80,3 +80,222 @@ footer {
     margin: 14px auto;
     max-width: 90%;
 }
+
+/* Research blog */
+.blog-composer-hint {
+    font-size: 14px;
+    margin-top: 8px;
+    line-height: 1.45;
+}
+.blog-composer-fallback {
+    display: block;
+    margin-top: 6px;
+    font-size: 13px;
+    color: #336699;
+}
+.blog-posts-section .blog-posts-heading {
+    margin-bottom: 10px;
+}
+.blog-posts {
+    min-height: 1em;
+}
+.blog-empty,
+.blog-error {
+    font-style: italic;
+    color: #004499;
+}
+article.blog-post {
+    margin-bottom: 22px;
+    padding-bottom: 16px;
+    border-bottom: 2px dotted #BFE8FF;
+}
+article.blog-post:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+.blog-post-title {
+    font-size: 22px;
+    color: #0066CC;
+    margin: 0 0 4px 0;
+    font-weight: bold;
+}
+.blog-post-meta {
+    font-size: 13px;
+    color: #336699;
+    margin: 0 0 10px 0;
+    font-family: "Courier New", monospace;
+}
+.blog-post-body.prose {
+    font-size: 15px;
+    line-height: 1.55;
+    text-align: left;
+}
+.prose h1,
+.prose h2,
+.prose h3,
+.prose h4 {
+    color: #0066CC;
+    margin: 1em 0 0.4em 0;
+    clear: both;
+}
+.prose h1 { font-size: 1.6em; }
+.prose h2 { font-size: 1.35em; border-bottom: 1px solid #BFE8FF; padding-bottom: 2px; }
+.prose h3 { font-size: 1.15em; }
+.prose p {
+    margin: 0.55em 0;
+}
+.prose ul,
+.prose ol {
+    margin: 0.5em 0 0.5em 1.4em;
+    padding-left: 0.2em;
+}
+.prose code {
+    font-family: "Courier New", monospace;
+    background: rgba(191, 232, 255, 0.45);
+    padding: 1px 5px;
+    border-radius: 3px;
+    font-size: 0.92em;
+}
+.prose pre {
+    background: rgba(230, 248, 255, 0.95);
+    border: 1px dashed #7FCCFF;
+    padding: 10px 12px;
+    overflow-x: auto;
+    font-size: 13px;
+    line-height: 1.4;
+}
+.prose pre code {
+    background: none;
+    padding: 0;
+}
+.prose blockquote {
+    margin: 0.6em 0 0.6em 12px;
+    padding: 4px 0 4px 12px;
+    border-left: 4px solid #7FCCFF;
+    color: #004477;
+}
+.prose a {
+    color: #0066CC;
+    font-weight: bold;
+}
+.prose .katex-display {
+    margin: 0.8em 0;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+/* Research admin */
+.admin-status {
+    font-size: 14px;
+    color: #004499;
+    margin: 0 0 10px 0;
+}
+.admin-help {
+    font-size: 14px;
+    line-height: 1.5;
+    margin: 0;
+}
+.admin-compose .admin-new-heading {
+    margin-top: 0;
+}
+.admin-field {
+    margin-bottom: 12px;
+}
+.admin-field label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 4px;
+    font-size: 14px;
+}
+.admin-field input[type="text"],
+.admin-field input[type="date"],
+.admin-field textarea {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    font-family: "Courier New", monospace;
+    font-size: 14px;
+    padding: 8px;
+    border: 2px solid #7FCCFF;
+    background: #fff;
+    color: #003366;
+}
+.admin-field textarea {
+    resize: vertical;
+    min-height: 180px;
+}
+.admin-actions {
+    margin: 12px 0 18px 0;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+.admin-btn-primary,
+.admin-toolbar button[type="button"],
+.admin-actions button[type="button"],
+.admin-post-row button[type="button"] {
+    font-family: "Comic Sans MS", "Trebuchet MS", Verdana, sans-serif;
+    font-weight: bold;
+    font-size: 15px;
+    padding: 8px 14px;
+    cursor: pointer;
+    border: 3px outset #7FCCFF;
+    background: linear-gradient(180deg, #e8f8ff 0%, #c8ecff 100%);
+    color: #003366;
+}
+.admin-btn-primary:hover,
+.admin-toolbar button[type="button"]:hover,
+.admin-actions button[type="button"]:hover,
+.admin-post-row button[type="button"]:hover {
+    background: linear-gradient(180deg, #f4fcff 0%, #d8f2ff 100%);
+}
+.admin-preview-box {
+    min-height: 80px;
+    padding: 12px;
+    border: 2px dashed #7FCCFF;
+    background: rgba(255, 255, 255, 0.97);
+}
+.admin-post-list {
+    list-style: none;
+    margin: 0 0 14px 0;
+    padding: 0;
+}
+.admin-post-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px 12px;
+    padding: 8px 0;
+    border-bottom: 1px dotted #BFE8FF;
+    font-size: 14px;
+}
+.admin-post-title {
+    flex: 1 1 180px;
+    font-weight: bold;
+}
+.admin-post-date {
+    font-family: "Courier New", monospace;
+    color: #336699;
+    min-width: 9em;
+}
+.admin-post-row button {
+    font-size: 13px;
+    padding: 4px 10px;
+}
+.admin-empty {
+    font-style: italic;
+    color: #6699cc;
+}
+.admin-toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 14px;
+    align-items: center;
+    margin-top: 8px;
+}
+.admin-import-label input[type="file"] {
+    font-size: 13px;
+    max-width: 100%;
+}

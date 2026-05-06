@@ -1,0 +1,54 @@
+# Decap CMS — edits research-posts.json and commits to GitHub (no manual download).
+#
+# GitHub Pages cannot complete OAuth by itself. After login, Decap needs either:
+#   • Uncomment backend.base_url and point it at an OAuth proxy you deploy (see below), OR
+#   • Host the site on Netlify and use its GitHub auth helper (see Decap “GitHub backend” docs).
+#
+# Lightweight proxy many people use with GitHub Pages:
+#   https://github.com/sterlingwes/decap-proxy (Cloudflare Worker — free tier works).
+# Create a GitHub OAuth App (Developer settings): callback URL must match what the proxy expects.
+#
+# Repo must match your site’s GitHub repository exactly:
+backend:
+  name: github
+  repo: alutterb/alutterb.github.io
+  branch: main
+  # Required on GitHub Pages: Cloudflare Worker URL from admin/OAUTH-SETUP.txt (no trailing slash):
+  base_url: https://decap-proxy.alutterb.workers.dev
+  # Path on the worker that starts GitHub login (decap-proxy serves /auth):
+  auth_endpoint: auth
+
+media_folder: uploads
+public_folder: uploads
+
+collections:
+  - name: research_posts
+    label: Research posts
+    files:
+      - label: Posts file
+        name: research_posts_file
+        file: research-posts.json
+        format: json
+        fields:
+          - label: Posts
+            name: posts
+            widget: list
+            summary: "{{fields.title}} — {{fields.date}}"
+            fields:
+              - label: Id
+                name: id
+                widget: string
+                hint: "Stable id (e.g. paste a UUID). Needed for edits."
+              - label: Title
+                name: title
+                widget: string
+              - label: Date
+                name: date
+                widget: datetime
+                date_format: YYYY-MM-DD
+                time_format: false
+                picker_utc: false
+              - label: Body
+                name: body
+                widget: markdown
+                hint: "Markdown + LaTeX ($inline$, $$display$$)."

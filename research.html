@@ -8,6 +8,7 @@ layout: none
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Research ~ My Website</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" crossorigin="anonymous">
 </head>
 <body>
 <div id="wrapper">
@@ -29,9 +30,15 @@ layout: none
     <section>
         <h2>Research</h2>
         <p>Notes and short posts on what I’m working on—papers I’m reading, experiments, and ideas in progress.</p>
-        <ul>
-            <li><em>Coming soon:</em> first research post—swap this line for real entries or links to longer write‑ups.</li>
-        </ul>
+        <p class="blog-composer-hint">
+            <a href="admin/">Edit posts in the CMS</a> (logs into GitHub and saves <code>research-posts.json</code> — OAuth setup: <a href="admin/OAUTH-SETUP.txt"><code>admin/OAUTH-SETUP.txt</code></a>).
+            <span class="blog-composer-fallback">No OAuth yet? Use the <a href="research-admin.html">offline composer</a> (download JSON).</span>
+        </p>
+    </section>
+
+    <section class="blog-posts-section">
+        <h2 class="blog-posts-heading">Posts</h2>
+        <div id="research-posts" class="blog-posts"></div>
     </section>
 
     <footer>
@@ -40,5 +47,10 @@ layout: none
         <img src="https://media.tenor.com/FDP8INb_tKYAAAAe/kirby-air-ride-kirby.png" alt="kirby badge" height="32"></p>
     </footer>
 </div>
+
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" crossorigin="anonymous"></script>
+<script src="js/research-blog.js"></script>
 </body>
 </html>

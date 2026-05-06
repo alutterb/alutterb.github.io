@@ -1,0 +1,89 @@
+---
+layout: none
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Research composer ~ My Website</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" crossorigin="anonymous">
+</head>
+<body>
+<div id="wrapper">
+    <header>
+        <img src="https://media1.tenor.com/m/UUTVUk3Ghr4AAAAC/mario-kart-luigi.gif" alt="angry luigi" style="vertical-align: middle; margin-right: 8px; height: 48px;">
+        <h1>My Stuff</h1>
+    </header>
+
+    <marquee behavior="alternate" scrollamount="6">Machine Learning • Research • 中文 • Maths • MTG</marquee>
+
+    <nav>
+        <a href="index.html#about">About</a> |
+        <a href="projects/">Projects</a> |
+        <a href="research.html">Research</a> |
+        <a href="mtg-brews.html">MTG Brews</a> |
+        <a href="misc/">Misc</a>
+    </nav>
+
+    <section>
+        <h2>Research composer</h2>
+        <p id="admin-status" class="admin-status">Loading…</p>
+        <p class="admin-help">
+            Write posts here in <strong>Markdown</strong> with <strong>LaTeX</strong> (<code>$…$</code> inline, <code>$$…$$</code> display).
+            If underscores inside math confuse Markdown, use <code>\( … \)</code> for inline math.
+            When you’re done, click <strong>Download research-posts.json</strong> and replace the file in your site repo, then push.
+            GitHub Pages cannot save from the browser—this download is how posts go live.
+        </p>
+    </section>
+
+    <section class="admin-compose">
+        <h2 class="admin-new-heading">New post</h2>
+        <div class="admin-field">
+            <label for="post-title">Title</label>
+            <input type="text" id="post-title" name="title" autocomplete="off" placeholder="Post title">
+        </div>
+        <div class="admin-field">
+            <label for="post-date">Date</label>
+            <input type="date" id="post-date" name="date">
+        </div>
+        <div class="admin-field">
+            <label for="post-body">Body (Markdown + LaTeX)</label>
+            <textarea id="post-body" name="body" rows="14" placeholder="## Hello&#10;&#10;Inline math: $x^2 + y^2 = r^2$.&#10;&#10;$$&#10;\int_0^1 x\,dx = \frac{1}{2}&#10;$$"></textarea>
+        </div>
+        <div class="admin-actions">
+            <button type="button" id="btn-save-post" class="admin-btn-primary">Add post</button>
+            <button type="button" id="btn-cancel-edit" hidden>Cancel edit</button>
+        </div>
+        <h3>Preview</h3>
+        <div id="post-preview" class="blog-post-body prose admin-preview-box"></div>
+    </section>
+
+    <section>
+        <h2>Posts in working copy</h2>
+        <ul id="admin-post-list" class="admin-post-list"></ul>
+        <div class="admin-toolbar">
+            <button type="button" id="btn-download-json" class="admin-btn-primary">Download research-posts.json</button>
+            <button type="button" id="btn-reload-remote">Merge from live JSON</button>
+            <label class="admin-import-label">
+                Import JSON file
+                <input type="file" id="import-json-file" accept=".json,application/json">
+            </label>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 1999‑2026 Austin Lutterbach<br>
+        <em>Composer — not linked from main nav on purpose</em><br>
+        <a href="research.html">← Back to Research</a></p>
+    </footer>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" crossorigin="anonymous"></script>
+<script src="js/research-blog.js"></script>
+<script src="js/research-admin.js"></script>
+</body>
+</html>

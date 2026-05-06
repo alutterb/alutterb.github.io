@@ -1,0 +1,105 @@
+Decap CMS + GitHub Pages — OAuth with Cloudflare (decap-proxy)
+===============================================================
+
+You host a tiny OAuth proxy on Cloudflare Workers. Decap talks to it; it talks to GitHub.
+Your site can stay on GitHub Pages.
+
+PREREQUISITES
+-------------
+• Cloudflare account (free tier is fine)
+• Node.js 18+ (for `npx wrangler`)
+• Your website repo is: alutterb/alutterb.github.io (change admin/config.yml if different)
+
+
+STEP 1 — Deploy the worker (get PROXY URL)
+-------------------------------------------
+1. Clone the proxy (must include https://github.com/… — “owner/repo” alone will fail):
+     git clone https://github.com/sterlingwes/decap-proxy.git
+     cd decap-proxy
+
+2. Copy config:
+     cp wrangler.toml.sample wrangler.toml
+
+3. Edit wrangler.toml: set `name = "something-unique"` (this becomes part of *.workers.dev).
+
+4. Log in to Cloudflare from the terminal:
+     npx wrangler login
+
+5. Add GitHub OAuth secrets (you will create the app in Step 2 — you can deploy after Step 2,
+   or create placeholder secrets and update them):
+     npx wrangler secret put GITHUB_OAUTH_ID
+     npx wrangler secret put GITHUB_OAUTH_SECRET
+
+6. Deploy:
+     npx wrangler deploy
+
+7. Note your worker URL, e.g.
+     https://YOUR-NAME.YOUR-SUBDOMAIN.workers.dev
+   Open it in a browser — you should see “Hello 👋”.
+   This is your PROXY URL for the next steps.
+
+
+STEP 2 — Create the GitHub OAuth App
+--------------------------------------
+1. Open (while logged into GitHub):
+     https://github.com/settings/applications/new
+
+2. Fill in:
+   Application name:       anything (e.g. Decap CMS — personal site)
+   Homepage URL:           YOUR PROXY URL from Step 1
+                           Example: https://YOUR-NAME.YOUR-SUBDOMAIN.workers.dev
+
+   Authorization callback URL:
+                           YOUR PROXY URL + /callback
+                           Example: https://YOUR-NAME.YOUR-SUBDOMAIN.workers.dev/callback
+
+3. Register the application. Copy:
+   • Client ID     → wrangler secret GITHUB_OAUTH_ID
+   • Client secret → wrangler secret GITHUB_OAUTH_SECRET
+
+4. If you deployed before creating the app, run secret put again and redeploy:
+     npx wrangler deploy
+
+
+STEP 3 — Private repo only (skip if public)
+---------------------------------------------
+If alutterb/alutterb.github.io is PRIVATE, in wrangler.toml set:
+     GITHUB_REPO_PRIVATE = "1"
+Then redeploy the worker.
+
+
+STEP 4 — Point Decap at the proxy
+---------------------------------
+1. Edit admin/config.yml in THIS repo:
+   • Uncomment `base_url` and set it to your PROXY URL (no trailing slash).
+   • Keep `auth_endpoint: auth` (already set).
+
+   Example:
+     backend:
+       name: github
+       repo: alutterb/alutterb.github.io
+       branch: main
+       base_url: https://YOUR-NAME.YOUR-SUBDOMAIN.workers.dev
+       auth_endpoint: auth
+
+2. Commit and push. Wait for GitHub Pages to update.
+
+
+STEP 5 — Test
+-------------
+1. Open: https://alutterb.github.io/admin/   (or your custom domain + /admin/)
+
+2. Click “Login with GitHub”. Complete OAuth.
+
+3. You should see the CMS; edits should commit to the repo.
+
+If login fails: double-check callback URL matches exactly (https vs http, no trailing slash on
+domain). If Decap says repo not found: fix `repo:` in config.yml. If the repo is private,
+ensure GITHUB_REPO_PRIVATE = "1" on the worker and redeploy.
+
+
+REFERENCES
+----------
+• decap-proxy: https://github.com/sterlingwes/decap-proxy
+• Decap GitHub backend: https://decapcms.org/docs/github-backend/
+• Decap backends / base_url: https://decapcms.org/docs/backends-overview/
