@@ -6,86 +6,7 @@ layout: none
 <head>
     <meta charset="utf-8">
     <title>~My Website~</title>
-    <style>
-        body {
-            background-image: url("https://64.media.tumblr.com/d4b96de3fa9a0b29c5b5b6804b0784a5/tumblr_ojdj7y3dif1uhq2kko4_400.gif");
-            background-repeat: repeat;
-            background-attachment: fixed;
-            background-color: #E3F6FF;
-            color: #003366;
-            font-family: "Comic Sans MS", "Trebuchet MS", Verdana, sans-serif;
-            margin: 0;
-        }
-        #wrapper {
-            width: 760px;
-            margin: 0 auto;
-            background: rgba(255, 255, 255, 0.88);
-            border: 4px ridge #6EC1FF;
-        }
-        header {
-            background: linear-gradient(90deg, #BFE8FF 0%, #7FCCFF 50%, #BFE8FF 100%);
-            padding: 12px;
-            text-align: center;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.25);
-        }
-        header h1 {
-            font-size: 42px;
-            color: #ffffff;
-            text-shadow: 3px 3px 0 #7FCCFF, 5px 5px 5px rgba(0,0,0,0.3);
-            margin: 0;
-            letter-spacing: 2px;
-        }
-        nav {
-            background-color: #D8F1FF;
-            border-top: 3px dashed #7FCCFF;
-            border-bottom: 3px dashed #7FCCFF;
-            padding: 6px 0;
-        }
-        nav a {
-            font-weight: bold;
-            color: #0066CC;
-            margin: 0 12px;
-            text-decoration: none;
-        }
-        nav a:hover {
-            text-decoration: underline overline;
-        }
-        marquee {
-            background-color: #7FCCFF;
-            color: #ffffff;
-            font-size: 15px;
-            padding: 4px 0;
-        }
-        section {
-            background: rgba(255,255,255,0.96);
-            border: 2px dotted #7FCCFF;
-            padding: 12px;
-            margin: 14px;
-        }
-        section h2 {
-            color: #0066CC;
-            border-bottom: 2px solid #7FCCFF;
-            font-size: 26px;
-            margin: 0 0 8px 0;
-        }
-        footer {
-            background-color: #D8F1FF;
-            color: #003366;
-            text-align: center;
-            padding: 10px 0 14px 0;
-            font-size: 13px;
-            font-family: "Courier New", monospace;
-        }
-        .blink {
-            animation: blinkAnim 1s steps(2, start) infinite;
-        }
-        @keyframes blinkAnim { to { visibility: hidden; } }
-        .divider {
-            display: block;
-            margin: 14px auto;
-            max-width: 90%;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 <div id="wrapper">
@@ -94,13 +15,15 @@ layout: none
         <h1>My Stuff</h1>
     </header>
 
-    <marquee behavior="alternate" scrollamount="6">Machine Learning • 中文 • Maths</marquee>
+    <marquee behavior="alternate" scrollamount="6">Machine Learning • Research • 中文 • Maths • MTG</marquee>
 
     <nav>
-        <a href="#about">About</a> |
-        <a href="#projects">Projects</a> |
-        <a href="#misc">Misc</a> |
-        <a href="#guestbook">Guestbook</a>
+        <a href="index.html#about">About</a> |
+        <a href="index.html#projects">Projects</a> |
+        <a href="research.html">Research</a> |
+        <a href="mtg-brews.html">MTG Brews</a> |
+        <a href="index.html#misc">Misc</a> |
+        <a href="index.html#guestbook">Guestbook</a>
     </nav>
 
     <section id="about">
