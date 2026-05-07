@@ -4,6 +4,30 @@
   var LS_URL = "research_publish_worker_url";
   var LS_SECRET = "research_publish_secret";
 
+  function safeDecodeURIComponent(s) {
+    try {
+      return decodeURIComponent(String(s || ""));
+    } catch (e) {
+      return String(s || "");
+    }
+  }
+
+  function getSetupFromQuery() {
+    try {
+      var u = new URL(window.location.href);
+      var publishUrl = u.searchParams.get("publishUrl") || u.searchParams.get("publish_url");
+      var secret = u.searchParams.get("secret");
+      var autosave = u.searchParams.get("autosave") || u.searchParams.get("save");
+      return {
+        publishUrl: publishUrl ? safeDecodeURIComponent(publishUrl).trim().replace(/\/+$/, "") : "",
+        secret: secret ? safeDecodeURIComponent(secret) : "",
+        autosave: autosave === "1" || autosave === "true" || autosave === "yes",
+      };
+    } catch (e) {
+      return { publishUrl: "", secret: "", autosave: false };
+    }
+  }
+
   function $(id) {
     return document.getElementById(id);
   }
@@ -37,6 +61,23 @@
     var secEl = $("feed-publish-secret");
     if (urlEl) urlEl.value = localStorage.getItem(LS_URL) || "";
     if (secEl) secEl.value = localStorage.getItem(LS_SECRET) || "";
+  }
+
+  function applySetup(publishUrl, secret, autosave) {
+    var urlEl = $("feed-publish-url");
+    var secEl = $("feed-publish-secret");
+    var st = $("feed-setup-status");
+
+    if (publishUrl && urlEl) urlEl.value = publishUrl;
+    if (secret && secEl) secEl.value = secret;
+
+    if (autosave && publishUrl && secret) {
+      localStorage.setItem(LS_URL, publishUrl);
+      localStorage.setItem(LS_SECRET, secret);
+      setStatus(st, "Saved in this browser (from link).");
+    } else if (publishUrl || secret) {
+      setStatus(st, "Filled from link. Click Save to store in this browser.");
+    }
   }
 
   function saveSetup() {
@@ -77,6 +118,11 @@
     if (dateEl && !dateEl.value) dateEl.value = todayIsoDate();
 
     loadSetupIntoInputs();
+    var q = getSetupFromQuery();
+    if (q.publishUrl || q.secret) {
+      applySetup(q.publishUrl, q.secret, q.autosave);
+      if (setupPanel) setupPanel.hidden = false;
+    }
 
     if (bodyEl) {
       bodyEl.addEventListener("input", schedulePreview);
