@@ -59,7 +59,43 @@
     comparePosts: comparePosts,
   };
 
-  function mount(containerId) {
+  function renderPostsInto(container, data) {
+    var posts = (data && data.posts) || [];
+    posts.sort(comparePosts);
+
+    if (!posts.length) {
+      container.innerHTML =
+        '<p class="blog-empty">No posts yet — write one in the box above, or use <a href="admin/">Decap</a>.</p>';
+      return;
+    }
+
+    container.innerHTML = "";
+    posts.forEach(function (post) {
+      var article = document.createElement("article");
+      article.className = "blog-post";
+      article.id = post.id ? "post-" + post.id : "";
+
+      var titleEl = document.createElement("h3");
+      titleEl.className = "blog-post-title";
+      titleEl.textContent = post.title || "Untitled";
+
+      var meta = document.createElement("p");
+      meta.className = "blog-post-meta";
+      meta.textContent = formatDisplayDate(post.date);
+
+      var body = document.createElement("div");
+      body.className = "blog-post-body prose";
+
+      article.appendChild(titleEl);
+      article.appendChild(meta);
+      article.appendChild(body);
+      container.appendChild(article);
+
+      renderMarkdown(body, post.body || "");
+    });
+  }
+
+  function loadPosts(containerId, done) {
     var container = document.getElementById(containerId);
     if (!container) return;
 
@@ -69,47 +105,25 @@
         return res.json();
       })
       .then(function (data) {
-        var posts = (data && data.posts) || [];
-        posts.sort(comparePosts);
-
-        if (!posts.length) {
-          container.innerHTML =
-            '<p class="blog-empty">No posts yet. Use <a href="research-admin.html">the composer</a> to write one.</p>';
-          return;
-        }
-
-        container.innerHTML = "";
-        posts.forEach(function (post) {
-          var article = document.createElement("article");
-          article.className = "blog-post";
-          article.id = post.id ? "post-" + post.id : "";
-
-          var titleEl = document.createElement("h3");
-          titleEl.className = "blog-post-title";
-          titleEl.textContent = post.title || "Untitled";
-
-          var meta = document.createElement("p");
-          meta.className = "blog-post-meta";
-          meta.textContent = formatDisplayDate(post.date);
-
-          var body = document.createElement("div");
-          body.className = "blog-post-body prose";
-
-          article.appendChild(titleEl);
-          article.appendChild(meta);
-          article.appendChild(body);
-          container.appendChild(article);
-
-          renderMarkdown(body, post.body || "");
-        });
+        renderPostsInto(container, data);
+        if (typeof done === "function") done(null, data);
       })
       .catch(function (err) {
         container.innerHTML =
           '<p class="blog-error">Could not load posts. If you opened this file from disk, use a local server or view the published site. (' +
           String(err.message || err) +
           ")</p>";
+        if (typeof done === "function") done(err);
       });
   }
+
+  function mount(containerId) {
+    loadPosts(containerId);
+  }
+
+  window.ResearchBlog.refresh = function (callback) {
+    loadPosts("research-posts", callback);
+  };
 
   document.addEventListener("DOMContentLoaded", function () {
     mount("research-posts");
