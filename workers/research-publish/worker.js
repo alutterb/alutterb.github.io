@@ -1,18 +1,6 @@
-/**
- * Cloudflare Worker: append a post to research-posts.json via GitHub Contents API.
- * Your site’s “Post” button calls this (CORS). GitHub token stays on the Worker only.
- *
- * Secrets (wrangler secret put …):
- *   GITHUB_TOKEN       — classic PAT or fine-grained with Contents read/write on this repo
- *   PUBLISH_SECRET     — long random string; same value stored in browser “Publishing setup”
- *
- * Vars (wrangler.toml [vars] or dashboard):
- *   GITHUB_OWNER       — e.g. alutterb
- *   GITHUB_REPO        — e.g. alutterb.github.io
- *   GITHUB_BRANCH      — main
- *   TARGET_PATH        — research-posts.json
- *   ALLOW_ORIGIN       — https://alutterb.github.io (must match your Pages origin exactly)
- */
+// Appends a post to research-posts.json via the GitHub Contents API.
+// Secrets: GITHUB_TOKEN, PUBLISH_SECRET.
+// Vars: GITHUB_OWNER, GITHUB_REPO, GITHUB_BRANCH, TARGET_PATH, ALLOW_ORIGIN.
 
 function corsHeaders(env) {
   var origin = env.ALLOW_ORIGIN || "https://alutterb.github.io";

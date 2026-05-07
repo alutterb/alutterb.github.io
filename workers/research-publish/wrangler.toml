@@ -7,12 +7,6 @@ GITHUB_OWNER = "alutterb"
 GITHUB_REPO = "alutterb.github.io"
 GITHUB_BRANCH = "master"
 TARGET_PATH = "research-posts.json"
-# Exact origin of your GitHub Pages site (no trailing slash):
 ALLOW_ORIGIN = "https://alutterb.github.io"
 
-# Create secrets (do not commit real values):
-#   npx wrangler secret put GITHUB_TOKEN
-#   npx wrangler secret put PUBLISH_SECRET
-#
-# GITHUB_TOKEN: classic PAT with repo scope, or fine-grained with Contents R/W on this repo only.
-# PUBLISH_SECRET: long random string — same value you paste in the site “Publishing setup”.
+# Secrets: GITHUB_TOKEN, PUBLISH_SECRET (npx wrangler secret put …).
