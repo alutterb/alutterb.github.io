@@ -29,9 +29,9 @@ layout: none
 
     <section>
         <h2>Research</h2>
-        <p>Notes and short posts on what I’m working on—papers I’m reading, experiments, and ideas in progress.</p>
+        <p>Notes and short posts on what I’m working on.</p>
         <p class="blog-composer-hint">
-            <strong>New:</strong> write below and click <strong>Post</strong> (after one-time <em>Publishing setup</em>). Or use <a href="admin/">Decap</a> · <a href="research-admin.html">offline composer</a> · <a href="admin/OAUTH-SETUP.txt">OAuth notes</a>.
+            Also: <a href="admin/">Decap</a> · <a href="research-admin.html">offline composer</a>.
         </p>
     </section>
 
@@ -43,7 +43,7 @@ layout: none
             </div>
             <div id="feed-setup-panel" class="feed-setup-panel" hidden>
                 <p class="feed-setup-help">
-                    Deploy the Worker in <code>workers/research-publish/</code> (see <code>README.txt</code>), then paste its URL and the same <strong>PUBLISH_SECRET</strong> you set on Cloudflare. Stored only in this browser.
+                    Worker URL + <code>PUBLISH_SECRET</code>. Kept in this browser.
                 </p>
                 <label class="feed-setup-field">
                     <span>Publish URL</span>
@@ -51,7 +51,7 @@ layout: none
                 </label>
                 <label class="feed-setup-field">
                     <span>Secret</span>
-                    <input type="password" id="feed-publish-secret" autocomplete="off" placeholder="Same as Worker secret">
+                    <input type="password" id="feed-publish-secret" autocomplete="off" placeholder="Worker secret">
                 </label>
                 <button type="button" class="feed-save-setup" id="feed-save-setup">Save</button>
                 <span id="feed-setup-status" class="feed-setup-status" role="status"></span>
@@ -69,7 +69,7 @@ layout: none
             </div>
             <label class="feed-field">
                 <span class="visually-hidden">Body</span>
-                <textarea id="feed-body" class="feed-body-input" rows="6" placeholder="Markdown + LaTeX — e.g. $x^2$ or $$\sum_{i=1}^n i$$"></textarea>
+                <textarea id="feed-body" class="feed-body-input" rows="6" placeholder="Markdown + LaTeX"></textarea>
             </label>
 
             <div class="feed-composer-actions">

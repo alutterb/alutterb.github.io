@@ -31,10 +31,8 @@ layout: none
         <h2>Research composer</h2>
         <p id="admin-status" class="admin-status">Loading…</p>
         <p class="admin-help">
-            Write posts here in <strong>Markdown</strong> with <strong>LaTeX</strong> (<code>$…$</code> inline, <code>$$…$$</code> display).
-            If underscores inside math confuse Markdown, use <code>\( … \)</code> for inline math.
-            When you’re done, click <strong>Download research-posts.json</strong> and replace the file in your site repo, then push.
-            GitHub Pages cannot save from the browser—this download is how posts go live.
+            Markdown + LaTeX (<code>$…$</code>, <code>$$…$$</code>; or <code>\(…\)</code> if underscores trip Markdown).
+            Hit <strong>Download research-posts.json</strong>, replace the file in the repo, push.
         </p>
     </section>
 
@@ -50,7 +48,7 @@ layout: none
         </div>
         <div class="admin-field">
             <label for="post-body">Body (Markdown + LaTeX)</label>
-            <textarea id="post-body" name="body" rows="14" placeholder="## Hello&#10;&#10;Inline math: $x^2 + y^2 = r^2$.&#10;&#10;$$&#10;\int_0^1 x\,dx = \frac{1}{2}&#10;$$"></textarea>
+            <textarea id="post-body" name="body" rows="14" placeholder="Markdown + LaTeX"></textarea>
         </div>
         <div class="admin-actions">
             <button type="button" id="btn-save-post" class="admin-btn-primary">Add post</button>
@@ -75,7 +73,6 @@ layout: none
 
     <footer>
         <p>© 1999‑2026 Austin Lutterbach<br>
-        <em>Composer — not linked from main nav on purpose</em><br>
         <a href="research.html">← Back to Research</a></p>
     </footer>
 </div>

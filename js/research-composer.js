@@ -74,9 +74,9 @@
     if (autosave && publishUrl && secret) {
       localStorage.setItem(LS_URL, publishUrl);
       localStorage.setItem(LS_SECRET, secret);
-      setStatus(st, "Saved in this browser (from link).");
+      setStatus(st, "Saved.");
     } else if (publishUrl || secret) {
-      setStatus(st, "Filled from link. Click Save to store in this browser.");
+      setStatus(st, "Filled from link. Click Save.");
     }
   }
 
@@ -88,18 +88,18 @@
     var u = urlEl.value.trim().replace(/\/+$/, "");
     var s = secEl.value;
     if (!u || !s) {
-      setStatus(st, "Enter both URL and secret.", true);
+      setStatus(st, "Enter URL and secret.", true);
       return;
     }
     try {
       new URL(u);
     } catch (e) {
-      setStatus(st, "Publish URL doesn’t look valid.", true);
+      setStatus(st, "Invalid URL.", true);
       return;
     }
     localStorage.setItem(LS_URL, u);
     localStorage.setItem(LS_SECRET, s);
-    setStatus(st, "Saved in this browser.");
+    setStatus(st, "Saved.");
   }
 
   document.addEventListener("DOMContentLoaded", function () {
@@ -149,18 +149,18 @@
       var date = (dateEl && dateEl.value) ? dateEl.value.trim() : todayIsoDate();
 
       if (!title) {
-        setStatus(statusEl, "Add a title.", true);
+        setStatus(statusEl, "Title required.", true);
         return;
       }
       if (!body.trim()) {
-        setStatus(statusEl, "Write something in the box.", true);
+        setStatus(statusEl, "Body required.", true);
         return;
       }
 
       var baseUrl = localStorage.getItem(LS_URL);
       var secret = localStorage.getItem(LS_SECRET);
       if (!baseUrl || !secret) {
-        setStatus(statusEl, 'Use “Publishing setup” first (Worker URL + secret).', true);
+        setStatus(statusEl, "Set Publishing setup first.", true);
         if (setupPanel) setupPanel.hidden = false;
         return;
       }
@@ -210,7 +210,7 @@
           bodyEl.value = "";
           if (dateEl) dateEl.value = todayIsoDate();
           runPreview();
-          setStatus(statusEl, "Posted to GitHub. Pages may take ~1 minute…");
+          setStatus(statusEl, "Posted. Pages takes ~1 min.");
           var n = 0;
           function bumpList() {
             n += 1;

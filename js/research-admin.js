@@ -65,7 +65,7 @@
           if (editingId === p.id) clearForm();
           renderPostList();
           saveToLocalStorage();
-          setStatus("Deleted. Remember to download JSON to update the live site.");
+          setStatus("Deleted. Download JSON to publish.");
         }
       });
 
@@ -129,7 +129,7 @@
     a.click();
     document.body.removeChild(a);
     URL.revokeObjectURL(a.href);
-    setStatus("Download started. Replace research-posts.json in your repo and push.");
+    setStatus("Downloaded. Replace research-posts.json and push.");
   }
 
   function mergeRemoteIntoWorking(remote) {
@@ -166,7 +166,7 @@
     if (draft && draft.posts && draft.posts.length) {
       posts = draft.posts.slice();
       renderPostList();
-      setStatus("Restored draft from this browser. Reload from file/server for fresh remote.");
+      setStatus("Restored draft.");
     }
 
     fetch("research-posts.json", { cache: "no-store" })
@@ -178,11 +178,11 @@
           posts = (data.posts || []).slice();
           renderPostList();
           saveToLocalStorage();
-          setStatus("Loaded research-posts.json from site.");
+          setStatus("Loaded research-posts.json.");
         }
       })
       .catch(function () {
-        if (!posts.length) setStatus("Could not fetch research-posts.json (offline?). Use Import or add posts.");
+        if (!posts.length) setStatus("Could not fetch research-posts.json.");
       });
 
     els.bodyInput.addEventListener("input", updatePreview);
@@ -205,7 +205,7 @@
           return { id: p.id, title: title, date: date, body: body };
         });
         clearForm();
-        setStatus("Post updated. Download JSON and push to publish.");
+        setStatus("Updated. Download JSON to publish.");
       } else {
         var id =
           typeof crypto !== "undefined" && crypto.randomUUID
@@ -213,7 +213,7 @@
             : "post-" + Date.now();
         posts.push({ id: id, title: title, date: date, body: body });
         clearForm();
-        setStatus("Post added. Download JSON and push to publish.");
+        setStatus("Added. Download JSON to publish.");
       }
       renderPostList();
       saveToLocalStorage();
@@ -235,7 +235,7 @@
           mergeRemoteIntoWorking(data);
           renderPostList();
           saveToLocalStorage();
-          setStatus("Merged remote posts into working copy (by id).");
+          setStatus("Merged remote posts (by id).");
         })
         .catch(function () {
           alert("Could not reload research-posts.json.");
@@ -254,7 +254,7 @@
           renderPostList();
           clearForm();
           saveToLocalStorage();
-          setStatus("Imported " + posts.length + " post(s) from file.");
+          setStatus("Imported " + posts.length + " post(s).");
         } catch (e) {
           alert("Invalid JSON: " + e.message);
         }

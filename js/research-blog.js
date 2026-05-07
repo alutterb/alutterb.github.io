@@ -64,8 +64,7 @@
     posts.sort(comparePosts);
 
     if (!posts.length) {
-      container.innerHTML =
-        '<p class="blog-empty">No posts yet — write one in the box above, or use <a href="admin/">Decap</a>.</p>';
+      container.innerHTML = '<p class="blog-empty">No posts yet.</p>';
       return;
     }
 
@@ -110,9 +109,7 @@
       })
       .catch(function (err) {
         container.innerHTML =
-          '<p class="blog-error">Could not load posts. If you opened this file from disk, use a local server or view the published site. (' +
-          String(err.message || err) +
-          ")</p>";
+          '<p class="blog-error">Could not load posts (' + String(err.message || err) + ").</p>";
         if (typeof done === "function") done(err);
       });
   }
