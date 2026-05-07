@@ -1,4 +1,3 @@
-# Copy to wrangler.toml, then: npx wrangler deploy
 name = "research-publish"
 main = "worker.js"
 compatibility_date = "2025-01-01"

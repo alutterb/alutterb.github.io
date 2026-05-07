@@ -29,3 +29,16 @@ GitHub token and appends new posts to research-posts.json.
 6. Click Post. GitHub receives a commit; GitHub Pages may take ~1–2 minutes to show the new post.
 
 Optional: deploy under a routes.custom_domain in wrangler if you prefer a path on your own domain.
+
+Automation helpers
+------------------
+If you want “one command” setup from this folder:
+
+WSL/Linux/macOS:
+  bash deploy.sh --secrets    (first time / secret rotation)
+  bash deploy.sh              (deploy only)
+
+Windows PowerShell:
+  .\\deploy.ps1
+
+They will prompt you for the two secrets and then deploy.
