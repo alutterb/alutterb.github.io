@@ -1,3 +1,10 @@
 {
-  "posts": []
+  "posts": [
+    {
+      "id": "acfcd9c2-5aea-4b6c-ba39-2d7851cdc950",
+      "title": "test",
+      "date": "2026-05-07",
+      "body": "aaaa"
+    }
+  ]
 }
