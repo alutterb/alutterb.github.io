@@ -5,7 +5,7 @@ compatibility_date = "2025-01-01"
 [vars]
 GITHUB_OWNER = "alutterb"
 GITHUB_REPO = "alutterb.github.io"
-GITHUB_BRANCH = "main"
+GITHUB_BRANCH = "master"
 TARGET_PATH = "research-posts.json"
 # Exact origin of your GitHub Pages site (no trailing slash):
 ALLOW_ORIGIN = "https://alutterb.github.io"
