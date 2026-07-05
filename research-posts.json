@@ -17,6 +17,12 @@
       "title": "still going strong",
       "date": "2026-06-20",
       "body": "some potential success with joining a SOAR team is on the horizon. Currently collabing with an old professor of mine as well"
+    },
+    {
+      "id": "c53745ca-d306-45dc-b865-764eb40f13b0",
+      "title": "Do models see the same sky?",
+      "date": "2026-07-05",
+      "body": "We have begun the journey of doing research in a more mature capacity. This time, we will investigate if representations of models converge to a particular \"underlying ideal\" using astronomical data. I got lucky and was accepted into SOAR for this project. I also am doubly lucky that a project that isn't necessarily adversarial ML targeted my research taste exactly. Though I still feel like there can be a tie in with adversarial ML andd this work sometime in the future. Onward!"
     }
   ]
 }
