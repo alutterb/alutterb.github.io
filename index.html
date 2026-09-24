@@ -2,11 +2,13 @@
 layout: none
 ---
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>~My Website~</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" crossorigin="anonymous">
 </head>
 <body>
 <div id="wrapper">
@@ -18,24 +20,126 @@ layout: none
     <marquee behavior="alternate" scrollamount="6">Machine Learning • Research • 中文 • Maths • MTG</marquee>
 
     <nav>
-        <a href="index.html#about">About</a> |
-        <a href="projects/">Projects</a> |
-        <a href="research.html">Research</a> |
-        <a href="mtg-brews.html">MTG Brews</a> |
-        <a href="misc/">Misc</a>
+        <a href="#about">About</a> |
+        <a href="#projects">Projects</a> |
+        <a href="#research">Research</a> |
+        <a href="#mtg">MTG Brews</a> |
+        <a href="#misc">Misc</a>
     </nav>
 
     <section id="about">
         <h2>About Me</h2>
         <p><span class="blink">🚧 Under Construction! 🚧</span></p>
         <p>B.S. in Math/Stats from Purdue University, M.Eng in Operations Research from Cornell University. I’m currently a Machine Learning Engineer at Booz Allen Hamilton working on fraud detection. I am also doing independent research on adversarial attacks on machine learning models.</p>
-        <p>See also <a href="projects/">projects</a> I’ve worked on and <a href="misc/">misc</a> notes.</p>
     </section>
+
+    <section id="projects">
+        <h2>Projects</h2>
+        <p>Some stuff I have done in the past. My current project is still in the works but will be listed here after completed.</p>
+        <ul>
+            <li><b><a href="https://www.boozallen.com/insights/ai-research/the-power-of-ai-observability-for-federal-agencies.html" target="_blank">AI Observability</a></b> – A research paper on the power of AI observability for federal agencies.</li>
+            <li><b><a href="https://github.com/alutterb/math-summarizer" target="_blank">Math Summarizer</a></b> – Extracts all the lego pieces from a math text and organizes them nicely for you.</li>
+            <li><b><a href="https://github.com/alutterb/retro-analytics" target="_blank">Retro Analytics</a></b> – Forecasting retro game price trends with ARIMA + online sentiment.</li>
+            <li><b><a href="https://github.com/alutterb/Chinese-Tutor" target="_blank">Chinese Tutor</a></b> – A local LLM‑powered 中文 study buddy using OCR, Pinecone & Llama‑2.</li>
+        </ul>
+    </section>
+
+    <section id="research">
+        <h2>Research</h2>
+        <p>Notes and short posts on what I’m working on.</p>
+
+        <div id="research-latest" class="blog-posts"></div>
+
+        <details id="research-history" class="thread-history" hidden>
+            <summary>Show full thread history <span id="research-history-count"></span></summary>
+            <div id="research-posts" class="blog-posts"></div>
+        </details>
+
+        <details class="feed-composer-details">
+            <summary>New post</summary>
+            <div class="feed-composer-card">
+                <div class="feed-composer-top">
+                    <span class="feed-composer-title-label">New post</span>
+                    <button type="button" class="feed-setup-toggle" id="feed-setup-toggle">Publishing setup</button>
+                </div>
+                <div id="feed-setup-panel" class="feed-setup-panel" hidden>
+                    <p class="feed-setup-help">
+                        Worker URL + <code>PUBLISH_SECRET</code>. Kept in this browser.
+                    </p>
+                    <label class="feed-setup-field">
+                        <span>Publish URL</span>
+                        <input type="url" id="feed-publish-url" placeholder="https://research-publish.yourname.workers.dev" autocomplete="off">
+                    </label>
+                    <label class="feed-setup-field">
+                        <span>Secret</span>
+                        <input type="password" id="feed-publish-secret" autocomplete="off" placeholder="Worker secret">
+                    </label>
+                    <button type="button" class="feed-save-setup" id="feed-save-setup">Save</button>
+                    <span id="feed-setup-status" class="feed-setup-status" role="status"></span>
+                </div>
+
+                <label class="feed-field feed-field-title">
+                    <span class="visually-hidden">Title</span>
+                    <input type="text" id="feed-title" maxlength="240" placeholder="Title" autocomplete="off">
+                </label>
+                <div class="feed-meta-row">
+                    <label class="feed-field feed-field-date">
+                        <span>Date</span>
+                        <input type="date" id="feed-date">
+                    </label>
+                </div>
+                <label class="feed-field">
+                    <span class="visually-hidden">Body</span>
+                    <textarea id="feed-body" class="feed-body-input" rows="6" placeholder="Markdown + LaTeX"></textarea>
+                </label>
+
+                <div class="feed-composer-actions">
+                    <button type="button" class="feed-post-btn" id="feed-post-btn">Post</button>
+                    <span class="feed-post-status" id="feed-post-status" role="status"></span>
+                </div>
+
+                <details class="feed-preview-details">
+                    <summary>Preview</summary>
+                    <div id="feed-preview" class="blog-post-body prose feed-preview-inner"></div>
+                </details>
+
+                <p class="blog-composer-hint">
+                    Also: <a href="admin/">Decap</a> · <a href="research-admin.html">offline composer</a>.
+                </p>
+            </div>
+        </details>
+    </section>
+
+    <section id="mtg">
+        <h2>Magic: The Gathering Brews</h2>
+        <p>Premodern brews</p>
+        <ul>
+            <li>I've been obsessed with premodern and making false cure work. <a href="https://archidekt.com/decks/21747557/dance_till_you_dead" target="_blank">Dance Till You Dead</a></li>
+        </ul>
+    </section>
+
+    <section id="misc">
+        <h2>Misc</h2>
+        <ul>
+            <li>I have just finished sitting in on a differential geometry class and highly recommend the lecture series created by the professor: <a href="https://homepages.uc.edu/~kormanp/Geo.pdf" target="_blank">Lectures on Elements of Differential Geoemtry</a>.</li>
+            <li>Reviewing <a href="https://dn790002.ca.archive.org/0/items/introduction-to-topology-by-mendelson-bert/Introduction%20to%20topology%20by%20Mendelson%2C%20Bert.pdf" target="_blank">Topology</a> with the end goal of moving onto Riemannian Geometry.</li>
+            <li>Concurrently with learning Topology and later Riemannian Geometry, I am working on geometry-aware threat models. This is what I'd like my PhD topic to be. </li>
+            <li>It takes around 6000 hours of practice to become fluent in Chinese. I have been practiicng roughly one hour per day for the past two years. That puts me at 365*2/6000 or about 12% completed.</li>
+        </ul>
+    </section>
+
     <footer>
-        <p>© 1999‑2026 Austin Lutterbach<br>
-        <em>Last updated: May 6, 2026</em><br>
+        <p>© 1999‑2026 Austin Lutterbach<br>
+        <em>Last updated: September 23, 2026</em><br>
         <img src="https://media.tenor.com/FDP8INb_tKYAAAAe/kirby-air-ride-kirby.png" alt="kirby badge" height="32"></p>
+        <p><a href="#wrapper">↑ Back to top</a></p>
     </footer>
 </div>
+
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" crossorigin="anonymous"></script>
+<script src="js/research-blog.js"></script>
+<script src="js/research-composer.js"></script>
 </body>
 </html>

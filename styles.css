@@ -483,3 +483,37 @@ article.blog-post:last-child {
     background: rgba(255, 255, 255, 0.95);
     text-align: left;
 }
+
+/* One-page layout */
+html {
+    scroll-behavior: smooth;
+}
+#wrapper > section {
+    scroll-margin-top: 12px;
+}
+.thread-history,
+.feed-composer-details {
+    margin-top: 16px;
+}
+.thread-history > summary,
+.feed-composer-details > summary {
+    cursor: pointer;
+    font-weight: bold;
+    color: #0066CC;
+    padding: 8px 12px;
+    border: 3px outset #7FCCFF;
+    background: linear-gradient(180deg, #e8f8ff 0%, #c8ecff 100%);
+}
+.thread-history > summary:hover,
+.feed-composer-details > summary:hover {
+    background: linear-gradient(180deg, #f4fcff 0%, #d8f2ff 100%);
+}
+.thread-history[open] > summary,
+.feed-composer-details[open] > summary {
+    border-style: inset;
+    margin-bottom: 14px;
+}
+.thread-history > .blog-posts {
+    padding-left: 12px;
+    border-left: 3px dotted #7FCCFF;
+}
