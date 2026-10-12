@@ -1,5 +1,12 @@
+// Attach media: "Attach media" uploads a GIF/APNG/WebP/PNG/MP4/WebM (max 10 MB) through the
+// publish worker, which commits it to media/. The markdown is inserted at the cursor:
+//   ![alt](media/name.gif)        plays as an image
+//   ![alt](media/name.mp4)        renders as a looping muted <video> (controls if reduced motion)
 (function () {
   "use strict";
+
+  var MAX_MEDIA_BYTES = 10 * 1024 * 1024;
+  var MEDIA_EXT = /\.(gif|png|apng|webp|mp4|webm)$/i;
 
   var LS_URL = "research_publish_worker_url";
   var LS_SECRET = "research_publish_secret";
@@ -102,6 +109,108 @@
     setStatus(st, "Saved.");
   }
 
+  function insertAtCursor(el, text) {
+    var start = el.selectionStart;
+    var end = el.selectionEnd;
+    if (typeof start !== "number") {
+      start = end = el.value.length;
+    }
+    el.value = el.value.slice(0, start) + text + el.value.slice(end);
+    var pos = start + text.length;
+    el.setSelectionRange(pos, pos);
+    el.focus();
+  }
+
+  function readBase64(file) {
+    return new Promise(function (resolve, reject) {
+      var reader = new FileReader();
+      reader.onload = function () {
+        var s = String(reader.result || "");
+        resolve(s.slice(s.indexOf(",") + 1));
+      };
+      reader.onerror = function () {
+        reject(new Error("Could not read file."));
+      };
+      reader.readAsDataURL(file);
+    });
+  }
+
+  function setupMediaUpload(bodyEl, statusEl) {
+    var attachBtn = $("feed-attach-btn");
+    var fileEl = $("feed-media-file");
+    if (!attachBtn || !fileEl) return;
+
+    attachBtn.addEventListener("click", function () {
+      fileEl.click();
+    });
+
+    fileEl.addEventListener("change", function () {
+      var file = fileEl.files && fileEl.files[0];
+      fileEl.value = "";
+      if (!file) return;
+
+      if (!MEDIA_EXT.test(file.name)) {
+        setStatus(statusEl, "Unsupported file. Use GIF, APNG, PNG, WebP, MP4 or WebM.", true);
+        return;
+      }
+      if (file.size > MAX_MEDIA_BYTES) {
+        var mb = (file.size / (1024 * 1024)).toFixed(1);
+        setStatus(statusEl, "File is " + mb + " MB. The limit is 10 MB; compress it and retry.", true);
+        return;
+      }
+
+      var baseUrl = localStorage.getItem(LS_URL);
+      var secret = localStorage.getItem(LS_SECRET);
+      if (!baseUrl || !secret) {
+        setStatus(statusEl, "Set Publishing setup first.", true);
+        var panel = $("feed-setup-panel");
+        if (panel) panel.hidden = false;
+        return;
+      }
+
+      setStatus(statusEl, "Uploading " + file.name + "…");
+      attachBtn.disabled = true;
+
+      readBase64(file)
+        .then(function (b64) {
+          return fetch(baseUrl.replace(/\/+$/, "") + "/", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: "Bearer " + secret,
+            },
+            body: JSON.stringify({ action: "upload-media", name: file.name, content: b64 }),
+          });
+        })
+        .then(function (res) {
+          return res.text().then(function (text) {
+            var data = {};
+            try {
+              data = text ? JSON.parse(text) : {};
+            } catch (e) {
+              data = {};
+            }
+            if (!res.ok || !data.path) {
+              throw new Error(data.error || "Upload failed (" + res.status + ")");
+            }
+            return data;
+          });
+        })
+        .then(function (data) {
+          var alt = file.name.replace(/\.[^.]+$/, "").replace(/[\[\]]/g, "");
+          insertAtCursor(bodyEl, "![" + alt + "](" + data.path + ")");
+          runPreview();
+          setStatus(statusEl, "Attached. Pages takes ~1 min to serve the file.");
+        })
+        .catch(function (e) {
+          setStatus(statusEl, String(e.message || e), true);
+        })
+        .finally(function () {
+          attachBtn.disabled = false;
+        });
+    });
+  }
+
   document.addEventListener("DOMContentLoaded", function () {
     var titleEl = $("feed-title");
     var dateEl = $("feed-date");
@@ -114,6 +223,8 @@
     var previewDetails = document.querySelector(".feed-preview-details");
 
     if (!titleEl || !bodyEl || !postBtn) return;
+
+    setupMediaUpload(bodyEl, statusEl);
 
     if (dateEl && !dateEl.value) dateEl.value = todayIsoDate();
 
