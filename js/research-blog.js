@@ -26,12 +26,43 @@
     return String(markdown);
   }
 
+  var VIDEO_EXT = /\.(mp4|webm)(?:[?#].*)?$/i;
+
+  // Image syntax pointing at .mp4/.webm becomes a looping muted video.
+  // With prefers-reduced-motion it shows controls instead of autoplaying.
+  function renderVideos(root) {
+    var reduce =
+      window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var imgs = root.querySelectorAll("img");
+    Array.prototype.forEach.call(imgs, function (img) {
+      var src = img.getAttribute("src") || "";
+      if (!VIDEO_EXT.test(src)) return;
+      var video = document.createElement("video");
+      video.className = "post-media";
+      video.src = src;
+      video.muted = true;
+      video.loop = true;
+      video.playsInline = true;
+      video.preload = "metadata";
+      var label = img.getAttribute("alt") || "";
+      if (label) video.setAttribute("aria-label", label);
+      if (img.title) video.title = img.title;
+      if (reduce) {
+        video.controls = true;
+      } else {
+        video.autoplay = true;
+      }
+      img.parentNode.replaceChild(video, img);
+    });
+  }
+
   function renderMarkdown(htmlContainer, markdown) {
     if (!markdown || !String(markdown).trim()) {
       htmlContainer.innerHTML = "<p><em>(Empty)</em></p>";
       return;
     }
     htmlContainer.innerHTML = parseMarkdown(markdown);
+    renderVideos(htmlContainer);
     renderMath(htmlContainer);
   }
 
