@@ -10,10 +10,10 @@ Setup:
   npx wrangler secret put PUBLISH_SECRET   # long random string
   npx wrangler deploy
 
-In Research → Publishing setup, paste the worker URL and the same PUBLISH_SECRET.
+In Blog Posts (blog.html) → Publishing setup, paste the worker URL and the same PUBLISH_SECRET.
 
 Animations / media:
-  In the composer (Research page) click "Attach media", pick a GIF, APNG, PNG, WebP, MP4
+  In the composer (Blog Posts page) click "Attach media", pick a GIF, APNG, PNG, WebP, MP4
   or WebM (max 10 MB). The worker commits it to media/ and the markdown is inserted at the
   cursor. Existing files are never overwritten (a suffix is added).
     ![caption](media/demo.gif)   image, animates as-is
