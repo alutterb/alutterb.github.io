@@ -7,8 +7,11 @@ layout: none
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Austin Lutterbach</title>
+    <script>
+        if (location.hash === "#research") location.replace("blog.html");
+        else if (location.hash.indexOf("#post-") === 0) location.replace("blog.html" + location.hash);
+    </script>
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="tabs.css">
 </head>
 <body>
 <div id="wrapper">
@@ -19,8 +22,8 @@ layout: none
 
     <marquee behavior="alternate" scrollamount="6">Machine Learning • Research • 中文 • Maths • MTG</marquee>
 
-    <nav class="site-tabs" aria-label="Site">
-        <a href="index.html" class="active" aria-current="page">Home</a>
+    <nav aria-label="Site">
+        <a href="index.html" aria-current="page">Home</a>
         <a href="blog.html">Blog Posts</a>
     </nav>
 
