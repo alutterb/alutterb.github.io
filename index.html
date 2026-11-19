@@ -7,8 +7,11 @@ layout: none
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Austin Lutterbach</title>
+    <script>
+        if (location.hash === "#research") location.replace("blog.html");
+        else if (location.hash.indexOf("#post-") === 0) location.replace("blog.html" + location.hash);
+    </script>
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" crossorigin="anonymous">
 </head>
 <body>
 <div id="wrapper">
@@ -19,6 +22,11 @@ layout: none
 
     <marquee behavior="alternate" scrollamount="6">Machine Learning • Research • 中文 • Maths • MTG</marquee>
 
+    <nav aria-label="Site">
+        <a href="index.html" aria-current="page">Home</a>
+        <a href="blog.html">Blog Posts</a>
+    </nav>
+
     <section id="about">
         <h2>About Me</h2>
         <p>I’m currently a Machine Learning Engineer at Booz Allen Hamilton building agentic workflows for OT cyber security. I am also supporting the UniverseTBD research collective in understanding foundation models. I also like adversarial machine learning and hope to tie those two efforts together.</p>
@@ -27,77 +35,9 @@ layout: none
     <section id="publications">
         <h2>Publications</h2>
         <ul>
-            <li><b>Native Geometry vs. Linear Recoverability: How Alignment Changes Platonic Scaling</b> – NeurReps 2026<br>Angus Hoy, Jasper Chong, <b>Austin Lutterbach</b>, Aman Kumar, Mike Smith</li>
-            <li><b>Curvature Mismatch and Local Errors in Galaxy Property Estimation</b> – Accepted at ML4PS 2026<br><b>Austin Lutterbach</b>, Angus Hoy, Jasper Chong, Aman Kumar, Mike Smith</li>
+            <li><b>Native Geometry vs. Linear Recoverability: How Alignment Changes Platonic Scaling</b> – NeurReps 2026<br>Angus Hoy, <b>Austin Lutterbach</b>, Jasper Chong, Aman Kumar, Mike Smith</li>
+            <li><b>Curvature Mismatch and Local Errors in Galaxy Property Estimation</b> – ML4PS 2026<br><b>Austin Lutterbach</b>, Angus Hoy, Jasper Chong, Aman Kumar, Mike Smith</li>
         </ul>
-    </section>
-
-    <section id="research">
-        <h2>Research</h2>
-        <p>Notes and short posts on what I’m working on.</p>
-
-        <div id="research-latest" class="blog-posts"></div>
-
-        <details id="research-history" class="thread-history" hidden>
-            <summary>Show full thread history <span id="research-history-count"></span></summary>
-            <div id="research-posts" class="blog-posts"></div>
-        </details>
-
-        <details class="feed-composer-details">
-            <summary>New post</summary>
-            <div class="feed-composer-card">
-                <div class="feed-composer-top">
-                    <span class="feed-composer-title-label">New post</span>
-                    <button type="button" class="feed-setup-toggle" id="feed-setup-toggle">Publishing setup</button>
-                </div>
-                <div id="feed-setup-panel" class="feed-setup-panel" hidden>
-                    <p class="feed-setup-help">
-                        Worker URL + <code>PUBLISH_SECRET</code>. Kept in this browser.
-                    </p>
-                    <label class="feed-setup-field">
-                        <span>Publish URL</span>
-                        <input type="url" id="feed-publish-url" placeholder="https://research-publish.yourname.workers.dev" autocomplete="off">
-                    </label>
-                    <label class="feed-setup-field">
-                        <span>Secret</span>
-                        <input type="password" id="feed-publish-secret" autocomplete="off" placeholder="Worker secret">
-                    </label>
-                    <button type="button" class="feed-save-setup" id="feed-save-setup">Save</button>
-                    <span id="feed-setup-status" class="feed-setup-status" role="status"></span>
-                </div>
-
-                <label class="feed-field feed-field-title">
-                    <span class="visually-hidden">Title</span>
-                    <input type="text" id="feed-title" maxlength="240" placeholder="Title" autocomplete="off">
-                </label>
-                <div class="feed-meta-row">
-                    <label class="feed-field feed-field-date">
-                        <span>Date</span>
-                        <input type="date" id="feed-date">
-                    </label>
-                </div>
-                <label class="feed-field">
-                    <span class="visually-hidden">Body</span>
-                    <textarea id="feed-body" class="feed-body-input" rows="6" placeholder="Markdown + LaTeX"></textarea>
-                </label>
-
-                <div class="feed-composer-actions">
-                    <button type="button" class="feed-post-btn" id="feed-post-btn">Post</button>
-                    <button type="button" class="feed-attach-btn" id="feed-attach-btn">Attach media</button>
-                    <input type="file" id="feed-media-file" accept=".gif,.png,.apng,.webp,.mp4,.webm" hidden>
-                    <span class="feed-post-status" id="feed-post-status" role="status"></span>
-                </div>
-
-                <details class="feed-preview-details">
-                    <summary>Preview</summary>
-                    <div id="feed-preview" class="blog-post-body prose feed-preview-inner"></div>
-                </details>
-
-                <p class="blog-composer-hint">
-                    Also: <a href="admin/">Decap</a> · <a href="research-admin.html">offline composer</a>.
-                </p>
-            </div>
-        </details>
     </section>
 
     <section id="cv">
@@ -144,10 +84,5 @@ layout: none
     </footer>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" crossorigin="anonymous"></script>
-<script src="js/research-blog.js"></script>
-<script src="js/research-composer.js"></script>
 </body>
 </html>
