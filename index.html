@@ -9,6 +9,7 @@ layout: none
     <title>Austin Lutterbach</title>
     <script>
         if (location.hash === "#research") location.replace("blog.html");
+        else if (location.hash === "#mtg") location.replace("mtg.html");
         else if (location.hash.indexOf("#post-") === 0) location.replace("blog.html" + location.hash);
     </script>
     <link rel="stylesheet" href="styles.css">
@@ -25,6 +26,7 @@ layout: none
     <nav aria-label="Site">
         <a href="index.html" aria-current="page">Home</a>
         <a href="blog.html">Blog Posts</a>
+        <a href="mtg.html">Magic: The Gathering</a>
     </nav>
 
     <section id="about">
@@ -53,14 +55,6 @@ layout: none
             <li><b><a href="https://github.com/alutterb/math-summarizer" target="_blank">Math Summarizer</a></b> – Extracts all the lego pieces from a math text and organizes them nicely for you.</li>
             <li><b><a href="https://github.com/alutterb/retro-analytics" target="_blank">Retro Analytics</a></b> – Forecasting retro game price trends with ARIMA + online sentiment.</li>
             <li><b><a href="https://github.com/alutterb/Chinese-Tutor" target="_blank">Chinese Tutor</a></b> – A local LLM‑powered 中文 study buddy using OCR, Pinecone & Llama‑2.</li>
-        </ul>
-    </section>
-
-    <section id="mtg">
-        <h2>Magic: The Gathering Brews</h2>
-        <p>Premodern brews</p>
-        <ul>
-            <li>I've been obsessed with premodern and making false cure work. <a href="https://archidekt.com/decks/21747557/dance_till_you_dead" target="_blank">Dance Till You Dead</a></li>
         </ul>
     </section>
 
